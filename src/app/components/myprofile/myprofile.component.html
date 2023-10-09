@@ -1,0 +1,59 @@
+<section class=" form ">
+    <form class="p-4 shadow" [formGroup]="myProfile" (ngSubmit)="addAddress()">
+        <div class="row g-3">
+            <div class="col-md-3">
+               <input type="text" class="form-control" formControlName="name" placeholder="Name">
+               <div class="alert alert-danger mt-1 p-1 text-center" *ngIf="myProfile.get('name')?.errors &&(myProfile.get('name')?.touched || myProfile.get('name')?.value.length>0)">
+                <p class="m-0" *ngIf="myProfile.get('name')?.getError('required')"> Name is required</p>
+               </div>
+            </div>
+            <div class="col-md-3">
+               <input type="text" class="form-control" formControlName="details" placeholder="details">
+               <div class="alert alert-danger mt-1 p-1 text-center" *ngIf="myProfile.get('details')?.errors && (myProfile.get('details')?.touched || myProfile.get('details')?.value.length>0)">
+                <p class="m-0"  *ngIf="myProfile.get('details')?.getError('required')">details is required</p>
+               </div>
+            </div>
+            <div class="col-md-3">
+               <input type="tel" class="form-control" formControlName="phone" placeholder="phone">
+               <div class="alert alert-danger mt-1 p-1 text-center" *ngIf="myProfile.get('phone')?.errors && (myProfile.get('phone')?.touched || myProfile.get('phone')?.value.length>0)">
+                <p class="m-0"  *ngIf="myProfile.get('phone')?.getError('required')">phone is required</p>
+               </div>
+            </div>
+            <div class="col-md-3">
+               <input type="text" class="form-control" formControlName="city" placeholder="city">
+               <div class="alert alert-danger mt-1 p-1 text-center" *ngIf="myProfile.get('city')?.errors && (myProfile.get('city')?.touched || myProfile.get('city')?.value.length>0)">
+                <p class="m-0" *ngIf="myProfile.get('city')?.getError('required')">city is required</p>
+               </div>
+            </div>
+            <button class="btn main-btn mt-2" [disabled]="myProfile.invalid">ADD ADDRESS <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i> </button>
+            <div class="w-100 d-flex justify-content-center">
+
+                <p class="alert alert-success p-2 text-center w-75" *ngIf="successMess">{{successMess}}</p>
+            </div>
+        </div>
+    </form>
+</section>
+
+
+<section>
+    <table class="table" *ngIf="result">
+        <thead class="bg-info ">
+            <th class="p-2">Name:</th>
+            <th class="p-2">Details:</th>
+            <th class="p-2">Phone:</th>
+            <th class="p-2">City:</th>
+            <th class="p-2"></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of profileDetails">
+                <td>{{item.name}}</td>
+                <td>{{item.details}}</td>
+                <td>{{item.phone}}</td>
+                <td>{{item.city}}</td>
+                <td class="trash"><span (click)="remove(item._id)" role="button" class="bg-body p-2 ">
+                    <i class="fa-solid fa-trash" ></i>
+                </span></td>
+            </tr>
+        </tbody>
+    </table>
+</section>

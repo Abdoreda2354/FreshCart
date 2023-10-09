@@ -1,0 +1,51 @@
+
+<section class="cart " *ngIf="numOfCartItems==0">
+    <div class="row align-items-center">    
+    <div class="col-md-4 p-0 m-0">
+        <img class="w-75" src="./assets/images/istockphoto-861576608-612x612.jpg" alt="not found">
+    </div>
+    <div class="col-md-8 p-0 m-0">
+        <h1>Your Cart Is Empty.....</h1>
+    </div>
+    </div>
+</section>
+
+<section *ngIf="numOfCartItems!==0" class="w-75 m-auto bg-main-light shadow p-4 cartItems section">
+    <div class="d-flex justify-content-between">
+        <div>
+            <h3 >Shop Cart</h3>
+            <p  class="text-main m-0">Total Price: {{cartData.totalCartPrice}}</p>
+        </div>
+        <div class="">
+            <div (click)="removecard()"><button class="btn btn-outline-danger"><i class="fa-solid fa-trash-can "></i> Clear Cart</button></div>
+            <p class="mt-2 fs-5">Total Number : <span class="text-main">{{length}}</span></p>
+        </div>
+        
+    </div>
+    
+    <div class="row border-bottom py-2 align-items-center" *ngFor="let item of cartData.products ;index as i">
+        <div class="col-sm-2 col-md-1">
+            <div class="">
+            <img class="w-100" [src]="item.product.imageCover" alt="img not found">
+                
+            </div>
+        </div>
+        <div class="col-sm-10 col-md-11 d-flex justify-content-between align-items-center">
+            <div>
+                <p class="m-0">{{item.product.title}}</p>
+                <p class="text-main price">Price: {{item.price | currency: ' '}} EGP</p>
+                <button (click)="deletItem(item.product._id)" class="btn m-0 p-1 text-danger"><i class="fa-solid fa-trash-can "></i> Remove</button>
+            </div>
+            <div>
+                <button (click)="updateItem(item.product._id ,item.count+1)" class="btn btn-sm btn-outline-success "><i class="fa-solid fa-plus plus"></i></button>
+                <span> {{item.count}} </span>
+                <button (click)="updateItem(item.product._id ,item.count-1)" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-minus plus"></i> </button>
+            </div>
+           
+        </div>
+    </div>
+
+    <button class="main-btn mt-2" [routerLink]="['/payment' ,cartData._id ]">
+        Online Payment <img src="./assets/images/visa-1.svg" alt=".">
+    </button>
+</section>

@@ -1,0 +1,84 @@
+.or::before{
+    content: '';
+    position: absolute;
+    top: 53%;
+    left: 0;
+    width: 47%;
+    height: 1px;
+    background-color: #00000038;
+}
+.or::after{
+    content: '';
+    position: absolute;
+    top: 53%;
+    right: 0;
+    width: 47%;
+    height: 1px;
+    background-color: #00000038;
+}
+
+.or{
+    position: relative;
+    color:#000000a8 ;
+}
+
+.google{
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #0000002f ;
+    border-radius: 5px;
+    color: #000000a8 ;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.google-icon{
+    width: 25px;
+    margin-right: 10px;
+    vertical-align: midd20;
+}
+.face-icon{
+    width: 41px;
+    margin-right: 10px;
+    vertical-align: midd20;
+}
+
+.google-row{
+    border-bottom: 2px solid #0000002f ;
+    width: 100%;
+    margin: auto;
+}
+
+.signup ,.forget{
+    color:#00000089 ;
+
+}
+.facebook{
+    background-color: #395697;
+}
+
+.input-container {
+    position: relative;
+  }
+  
+  .input-container .icon {
+    color: #000;
+    position: absolute;
+    top: 66%;
+    right: 13px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    cursor: pointer;
+    z-index: 10000;
+
+  }
+
+  @media (max-width: 780.9808px) {
+    section{
+      width: 95%!important;
+    }
+}

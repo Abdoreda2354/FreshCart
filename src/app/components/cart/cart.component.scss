@@ -1,0 +1,42 @@
+.plus{
+    font-size: 10px;
+}
+.cart{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.price{
+    margin: 5px 0;
+}
+.cartItems{
+    max-height: 80vh;
+    overflow-y: scroll;
+}
+
+
+@media (max-width: 1000.9808px) {
+    .orderdetails{
+        width: 70%;
+    }
+
+}
+@media (max-width: 768.9808px) {
+
+.section{
+    width: 85%;
+}
+.orderdetails{
+    width: 85%;
+}
+}
+@media (max-width: 648.9808px) {
+
+.section{
+    width: 90%!important;
+}
+.orderdetails{
+    width: 95%;
+}
+}

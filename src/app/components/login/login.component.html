@@ -1,0 +1,42 @@
+<section class="w-75 mx-auto bg-main-light shadow p-5 mt-5 mb-5">
+    <h1 class="text-center">Login</h1>
+    <form [formGroup]="loginForm" class="mt-5"  (ngSubmit)="handleForm()">
+        <div class="mb-4">
+            <label for="email">Email:</label>
+            <input type="email" id="email" formControlName="email" class="form-control">
+            <div class="alert alert-danger mt-1 p-2" *ngIf="loginForm.get('email')?.errors && (loginForm.get('email')?.touched ||loginForm.get('email')?.value.length>0) ">
+                <p class="m-0" *ngIf="loginForm.get('email')?.getError('required')">email is required</p>
+                <p class="m-0" *ngIf="loginForm.get('email')?.getError('email')">email is not valid</p>
+            </div>
+        </div>
+        <div>
+
+            <div class="input-container">
+                <label for="password">Password:</label>
+                <input [type]="changeType==false? 'password':'text' " id="password" class="form-control" formControlName="password">
+                <span class="icon" (click)="viewPass()">
+                    <i [class]="visible==true? 'fa-solid fa-eye':'fa-solid fa-eye-slash' "></i>
+                </span>
+            </div>
+            <div class="alert alert-danger mt-1 p-2 " *ngIf="loginForm.get('password')?.errors && (loginForm.get('password')?.touched ||loginForm.get('password')?.value.length>0) ">
+                <p class="m-0 " *ngIf="loginForm.get('password')?.getError('required')">password is required</p>
+            </div>
+        </div>
+            <button class="main-btn mt-4 w-100" [disabled]="loginForm.invalid">Login <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></i></button>
+        <p class="alert alert-danger mt-2 p-2" *ngIf="errMessage">{{errMessage}}</p>
+    
+
+        <div class="row mt-4 pt-4 border-top pb-4 g-3 ">
+            <div class="col-md-6">
+                <div class="forget google d-flex justify-content-center align-items-center" role="button" routerLink="/forget">
+                   <p class="m-0"> FORGET PASSWORD? </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="signup google d-flex justify-content-center align-items-center" role="button" routerLink="/register">
+                   <p class="m-0"> SIGN UP </p>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

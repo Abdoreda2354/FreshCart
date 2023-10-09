@@ -1,0 +1,23 @@
+.form{
+    min-height:40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-trash{
+    color: red;
+}
+.trash{
+    opacity: 0;
+    transition: 0.4s;
+}
+.trash:hover{
+    opacity: 100%;
+}
+
+@media (max-width: 780.9808px) {
+     .form{
+      margin:20px 0 ;
+    }
+}

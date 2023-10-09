@@ -1,0 +1,138 @@
+.product p{
+    font-size: 14px!important;
+    position: relative;
+}
+.product:hover{
+    box-shadow: none;
+}
+
+.product{
+    padding-inline: 8px!important;
+}
+.imgSlider{
+    padding: 10px;
+    border-radius: 40px!important;
+}
+.imgSlider img{
+    border-radius: 40px;
+}
+.imgSlider p{
+    margin-top: 10px;
+    text-align: center;
+}
+.addcart{
+    width: 100%;
+   display: flex;
+   justify-content: center;
+    position: absolute;
+    bottom: -50px;
+    opacity: 0;
+    transition: 1.3s;
+}
+.main{
+    border-radius: 10px;
+   transition: 0.2s;
+   overflow: hidden!important;
+}
+
+.main:hover{
+    border: 1px solid  #0aad0a;
+    box-shadow:  rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+    border-radius: 10px;
+}
+
+.main:hover .addcart{
+    opacity: 100%;
+    bottom: 10px;
+}
+.Wishlist{
+    position: absolute;
+    bottom: 94px;
+    right: 13px;
+    font-size: 15px;
+    opacity: 0;
+    transition: 1s;
+    cursor: pointer;
+    
+}
+.main:hover .Wishlist{
+    opacity: 100%;
+    
+}
+
+.wishlist{
+    display: none;
+}
+
+.button {
+    position: relative;
+    width: 196px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+    border-radius: 10px;
+  }
+  
+  .button, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+  
+  .button .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .button .button__icon {
+    position: absolute;
+    transform: translateX(149px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+  }
+  
+  .button .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+  
+  .button:hover {
+    background: #34974d;
+  }
+  
+  .button:hover .button__text {
+    color: transparent;
+  }
+  
+  .button:hover .button__icon {
+    width: 148px;
+    transform: translateX(20px);
+  }
+  
+  .button:active .button__icon {
+    background-color: #2e8644;
+  }
+  
+  .button:active {
+    border: 1px solid #2e8644;
+  }
+
+  
+
+  @media (max-width: 580.9808px) {
+
+    .col-xs-6 {
+      flex: 0 0 auto;
+      width: 50%;
+  }
+}

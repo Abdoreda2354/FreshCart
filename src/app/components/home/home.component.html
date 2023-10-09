@@ -1,0 +1,77 @@
+<section id="mainSlider" class=" mb-5">
+<div class="row g-0">
+    <div class="col-md-8">
+        <owl-carousel-o [options]="mainSlider">
+            <ng-template carouselSlide><img height="400" class="w-100" src="./assets/images/main-slider-1.jpeg" alt="img not found"></ng-template>  
+            <ng-template carouselSlide><img height="400" class="w-100" src="./assets/images/main-slider-2.jpeg" alt="img not found"></ng-template>  
+            <ng-template carouselSlide><img height="400" class="w-100" src="./assets/images/main-slider-3.jpeg" alt="img not found"></ng-template>  
+          </owl-carousel-o>
+        
+    </div>
+    <div class="col-md-4">
+        <img height="200" class="w-100" src="./assets/images/slide-1.jpeg" alt="img not found">
+        <img height="200" class="w-100" src="./assets/images/slide-2.jpeg" alt="img not found">
+    </div>
+</div>
+</section>
+
+<section id="slider">
+    <owl-carousel-o [options]="customOptions">
+        <ng-container *ngFor="let slide of categories">
+          <ng-template carouselSlide >
+            <div class="imgSlider">
+                <img height="280" [src]="slide.image" [alt]="slide.name" [title]="slide.name">
+                <p class="text-main">{{slide.name}}</p>
+            </div>
+           
+          </ng-template>
+        </ng-container>
+    
+      </owl-carousel-o>
+</section>
+
+<section>
+    <input type="text" placeholder="Search..." class="form-control w-75 m-auto mt-5 mb-5" [(ngModel)]="term">
+
+    <div class="row g-3 justify-content-center">
+        <div class=" col-xs-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 g-3" *ngFor="let item of homeData.slice(0,20)|search: term">
+            <div class=" main h-100 position-relative">
+                <div class="wishlist">
+                    <i class="fa-regular fa-heart fa-xl"></i>
+                </div>
+                <div class="product h-100 p-3 mb-3" role="button" [routerLink]="['/details' , item._id]">
+                    <img class="w-100" [src]="item.imageCover" class="card-img-top" alt="imge not found">
+                    <div class="">
+                        <div class="card-body">
+                            <p class="card-title">{{item.title | cuttext}}</p>
+                            <p class="text-main  ">{{item.category.name}}</p>
+                          </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center mt-3 mb-3 ">
+                        <p>{{item.price|currency: 'EGP'}}</p>
+                        <p><i class="fa-solid fa-star rating-color"></i> {{item.ratingsAverage}}</p>
+                    </div>
+                </div>
+                
+                <div *ngIf="!wishlist.includes($any(item._id))" class="Wishlist" (click)="addtowish(item._id)">
+                    <i class="fa-regular fa-heart fa-2xl"></i>
+                </div>
+
+
+                <div *ngIf="wishlist.includes($any(item._id))" class="Wishlist" (click)="removewish(item._id)">
+                    <i class="fa-solid fa-heart  fa-2xl text-main"></i>
+                </div>
+
+
+                <div class="addcart">
+                    <button type="button" class="button"  (click)="Addtocart(item._id)">
+                        <span class="button__text">Add To Cart</span>
+                        <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
+                      </button>
+                </div>
+                
+              </div>
+        </div>
+    </div>
+</section>

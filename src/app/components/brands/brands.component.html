@@ -1,0 +1,12 @@
+<section>
+    <div class="row g-4">
+        <div class=" col-md-6  col-lg-4  col-xl-3"  *ngFor="let item of brands" role="button" >
+            <div class="card" [routerLink]="['/brandsDetails', item._id]" >
+                <img [src]="item.image" class="card-img-top" alt="notfound">
+                <div class="card-body">
+                  <h5 class="card-title fs-3 text-main">{{item.name}}</h5>
+                </div>
+              </div>
+        </div>
+    </div>
+</section>

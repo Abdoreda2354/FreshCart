@@ -1,0 +1,35 @@
+<section class="all " *ngIf="allorderslength==0">
+    <div class="row align-items-center">    
+    <div class="col-md-4 p-0 m-0">
+        <img class="w-75" src="./assets/images/istockphoto-861576608-612x612.jpg" alt="not found">
+    </div>
+    <div class="col-md-8 p-0 m-0" >
+        <h1>Your Orders Is Empty.....</h1>
+    </div>
+    </div>
+</section>
+
+
+<section class="w-75 m-auto bg-main-light shadow p-4 overflow-y-scroll section" *ngIf="allorderslength!==0">
+    <h2 class="p-3 text-lg-center mb-30 allorders">All Orders</h2>
+        <div class="  border p-5 mb-5" *ngFor="let Parent of allOrders ;index as i">
+                <h4 class=" order">Order : {{i+1}}</h4>
+            <div class="border-bottom row align-items-center py-4"  *ngFor="let Child of Parent.cartItems">
+                <div class="col-sm-2 col-md-1 p-2">
+                    <img [src]="Child.product.imageCover" alt="" class="w-100">
+                </div>
+                <div class="col-sm-10 col-md-11">
+                    <p class="text-main m-0">{{Child.product.title}}</p>
+                    <p class="m-0"> Count : {{Child.count}}</p>
+                    <p class="m-0"> Price : {{Child.price |currency:' EGP '}}</p>
+                </div>
+            </div>
+
+            <div class=" border orderdetails">
+                <p class="m-0">is Delivered: <span class="true" [class]="Parent.isDelivered? 'bg-success':'bg-danger'">{{Parent.isDelivered}}</span></p>
+                <p class="m-0">Is Paid: <span class="true" [class]="Parent.isPaid? 'bg-success':'bg-danger'">{{Parent.isPaid}}</span></p>
+                <p class="m-0">Payment Method Type: {{Parent.paymentMethodType}}</p>
+                <p class="m-0">TotalOrderPrice: {{Parent.totalOrderPrice |currency: ' EGP '}} </p>
+            </div>
+       </div>
+</section>

@@ -1,0 +1,19 @@
+.container-fluid{
+    margin-top: 6rem;
+}
+main{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.arrow{
+    position: fixed;
+    bottom: 12px;
+    right: 14px;
+    z-index: 9999;
+    background-color: #0aad0a;
+    color: #fff;
+    border: unset;
+    padding: 10px 15px;
+    border-radius: 15px;
+}
